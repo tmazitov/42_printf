@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 15:15:18 by tmazitov          #+#    #+#             */
-/*   Updated: 2023/07/17 15:20:24 by tmazitov         ###   ########.fr       */
+/*   Updated: 2023/08/02 15:54:24 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_print_type(const char *format_str, va_list args)
 	if (*format_str == 'i')
 		return (ft_putnbr(va_arg(args, int)));
 	if (*format_str == 'u')
-		return (ft_putunbr(va_arg(args, int)));
+		return (ft_putunbr(va_arg(args, unsigned int)));
 	if (*format_str == 'x')
 		return (ft_print_low_hex(va_arg(args, unsigned int)));
 	if (*format_str == 'X')
@@ -43,6 +43,8 @@ int	ft_printf(const char *format_str, ...)
 	int		t_print_result;
 	va_list	args;
 
+	if (!format_str)
+		return (0);
 	counter = 0;
 	chars = 0;
 	va_start(args, format_str);
@@ -84,7 +86,7 @@ int main()
 	ft_printf("TEST d:\t%d\t", 52);
 	printf("	orig: %d\n", 52);
 	// %i
-	ft_printf("TEST i:\t%i\t", 0b01110);
+	ft_printf("TEST i:\t%i\t", Ox);
 	printf("	orig: %i\n", 0b01110);
 	// %u
 	ft_printf("TEST u:\t%u\t", 1);
